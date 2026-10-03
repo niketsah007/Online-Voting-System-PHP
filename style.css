@@ -1,0 +1,134 @@
+/* style.css - Modern Glassmorphism Theme */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* The White Card Container */
+form, .slip-container, .dashboard-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 350px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+}
+
+h2 {
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Inputs */
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #764ba2;
+    outline: none;
+    background: #fff;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+}
+
+/* Candidate Selection Cards */
+.candidate-box {
+    text-align: left;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.candidate-box:hover {
+    border-color: #764ba2;
+    background: #f3f0ff;
+}
+
+/* Voter Slip Style */
+.voter-slip {
+    border: 3px dashed #764ba2;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+a { color: #764ba2; text-decoration: none; font-weight: bold; }
+a:hover { text-decoration: underline; }
+
+/* --- ULTIMATE PRINT FIX --- */
+@media print {
+    /* 1. Reset the entire page layout */
+    body, html {
+        display: block !important;
+        height: auto !important;
+        width: 100% !important;
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* 2. Position the Slip at the very top-left */
+    .slip-container {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        box-shadow: none !important;
+        background: white !important;
+    }
+
+    /* 3. Ensure the slip text is black and visible */
+    .voter-slip {
+        border: 2px solid #000 !important;
+        width: 90% !important; /* Use most of the paper width */
+        margin: 0 auto !important; /* Center it horizontally */
+        color: black !important;
+    }
+
+    /* 4. HIDE EVERYTHING ELSE */
+    button, a, .dashboard-container, form {
+        display: none !important;
+    }
+}
